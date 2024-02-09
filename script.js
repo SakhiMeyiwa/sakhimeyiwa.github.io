@@ -1,14 +1,27 @@
+const header = document.querySelector("header");
 
-document.querySelector('.Open').addEventListener('click',()=>{
-    document.querySelector('.nav-link').style.display='flex';
-    document.querySelector('.Open').style.display='none'
-    document.querySelector('.Close').style.display='inline-block'
-})
-
+window.addEventListener ("scroll", function(){
+    header.toggle ("sticky",window.scrollY > 120);
+});
 
 
-document.querySelector('.Close').addEventListener('click',()=>{
-    document.querySelector('.nav-link').style.display='none';
-    document.querySelector('.Open').style.display='inline-block'
-    document.querySelector('.Close').style.display='none'
-})
+let menu = document.querySelector('#menu-icon');
+let navlist = document.querySelector('.navlist');
+
+
+
+
+menu.onclick = () => {
+    menu.classList.toggle('bx-x');
+    navlist.classList.toggle('active');
+};
+
+
+window.onscroll = () => {
+    menu.classList.remove('bx-x');
+    navlist.classList.remove('active');
+}
+
+
+
+
